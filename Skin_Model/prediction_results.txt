@@ -1,0 +1,125 @@
+SKIN DISEASE PREDICTION RESULTS
+====================================================================================================
+
+Image: ISIC_0024312.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 97.18%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024324.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 94.76%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024336.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 96.68%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024337.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 79.81%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024338.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 97.31%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024358.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 96.90%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024371.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 85.48%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024381.jpg
+Prediction: Basal Cell Carcinoma
+Confidence: 54.30%
+Severity: HIGH
+Recommendation: ⚠️  URGENT: Consult a dermatologist immediately for proper treatment.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024382.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 93.02%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024383.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 93.85%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024408.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 95.24%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024409.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 85.48%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024412.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 88.34%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024420.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 91.58%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024422.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 95.12%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+Image: ISIC_0024426.jpg
+Prediction: Pigmented Benign Keratosis
+Confidence: 86.87%
+Severity: LOW
+Recommendation: ✓ Generally harmless. Consult doctor if it becomes irritated or changes.
+----------------------------------------------------------------------------------------------------
+
+
+SUMMARY
+====================================================================================================
+Total images: 16
+
+Basal Cell Carcinoma               :   1 (  6.2%)
+Melanoma                           :   0 (  0.0%)
+Nevus (Mole)                       :   0 (  0.0%)
+Normal Skin                        :   0 (  0.0%)
+Pigmented Benign Keratosis         :  15 ( 93.8%)
