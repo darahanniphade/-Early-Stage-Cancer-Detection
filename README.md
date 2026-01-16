@@ -189,7 +189,7 @@ Virtual Environment
 
 Installation Steps
 # Clone the repository
-git clone https://github.com/yourusername/early-cancer-detection.git
+git clone https://github.com/drashanniphade/Early-Stage-Cancer-Detection.git
 
 # Navigate to project folder
 cd early-cancer-detection
