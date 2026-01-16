@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection - Medical AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-heartbeat"></i>
+                <span>Medical AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/brain" class="active">Brain Scan</a>
+                <a href="/skin">Skin Analysis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="detection-page">
+        <div class="container">
+            <div class="page-header">
+                <h1><i class="fas fa-brain"></i> Brain Tumor Detection</h1>
+                <p>Upload an MRI scan for AI-powered analysis</p>
+            </div>
+
+            <div class="detection-grid">
+                <!-- Upload Section -->
+                <div class="upload-section">
+                    <div class="upload-card">
+                        <div class="upload-area" id="uploadArea">
+                            <input type="file" id="fileInput" accept="image/*" hidden>
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h3>Drop your MRI scan here</h3>
+                                <p>or click to browse</p>
+                                <span class="file-types">Supported: JPG, PNG, JPEG (Max 16MB)</span>
+                            </div>
+                        </div>
+
+                        <div class="preview-area" id="previewArea" style="display: none;">
+                            <img id="previewImage" alt="Preview">
+                            <button class="btn-remove" id="removeImage">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <button class="btn btn-primary btn-analyze" id="analyzeBtn" disabled>
+                            <i class="fas fa-brain"></i>
+                            Analyze MRI Scan
+                        </button>
+                    </div>
+
+                    <!-- Info Cards -->
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <i class="fas fa-info-circle"></i>
+                            <h4>About Brain Detection</h4>
+                            <p>Our AI model can identify four types of brain conditions: Glioma, Meningioma, Pituitary tumors, and Normal brain tissue.</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Privacy & Security</h4>
+                            <p>Your images are processed securely and are not permanently stored on our servers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section">
+                    <div class="results-card" id="resultsCard">
+                        <div class="results-placeholder">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>Results will appear here</h3>
+                            <p>Upload an MRI scan and click analyze to get started</p>
+                        </div>
+
+                        <div class="results-content" id="resultsContent" style="display: none;">
+                            <!-- Loading State -->
+                            <div class="loading-state" id="loadingState">
+                                <div class="spinner"></div>
+                                <h3>Analyzing MRI Scan...</h3>
+                                <p>Please wait while our AI processes your image</p>
+                            </div>
+
+                            <!-- Results Display -->
+                            <div class="results-display" id="resultsDisplay" style="display: none;">
+                                <div class="result-header">
+                                    <div class="result-icon" id="resultIcon">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div class="result-title">
+                                        <h2 id="resultTitle">Diagnosis Result</h2>
+                                        <span class="result-time" id="resultTime"></span>
+                                    </div>
+                                </div>
+
+                                <div class="result-main">
+                                    <div class="prediction-box">
+                                        <span class="label">Detected Condition</span>
+                                        <h3 class="prediction-value" id="predictionValue">-</h3>
+                                    </div>
+                                    <div class="confidence-box">
+                                        <span class="label">Confidence Level</span>
+                                        <div class="confidence-display">
+                                            <span class="confidence-value" id="confidenceValue">0%</span>
+                                            <div class="confidence-bar">
+                                                <div class="confidence-fill" id="confidenceFill"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="probabilities-section">
+                                    <h4>All Probabilities</h4>
+                                    <div class="probability-list" id="probabilityList"></div>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button class="btn btn-secondary" id="newAnalysisBtn">
+                                        <i class="fas fa-redo"></i>
+                                        New Analysis
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Error State -->
+                            <div class="error-state" id="errorState" style="display: none;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h3>Analysis Failed</h3>
+                                <p id="errorMessage">An error occurred during analysis</p>
+                                <button class="btn btn-primary" id="retryBtn">
+                                    <i class="fas fa-redo"></i>
+                                    Try Again
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Disease Info -->
+                    <div class="disease-info-card">
+                        <h4><i class="fas fa-book-medical"></i> Detection Categories</h4>
+                        <div class="disease-list">
+                            <div class="disease-item">
+                                <strong>Glioma:</strong> Most common malignant brain tumor
+                            </div>
+                            <div class="disease-item">
+                                <strong>Meningioma:</strong> Usually benign tumor of brain membranes
+                            </div>
+                            <div class="disease-item">
+                                <strong>Pituitary:</strong> Tumor in the pituitary gland
+                            </div>
+                            <div class="disease-item">
+                                <strong>Normal:</strong> No tumor detected
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <i class="fas fa-exclamation-circle"></i>
+                <strong>Medical Disclaimer:</strong> This tool is for educational and research purposes only. 
+                It should not be used as a substitute for professional medical advice, diagnosis, or treatment. 
+                Always consult with qualified healthcare professionals for medical concerns.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Medical AI. Built with PyTorch and Flask.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/brain.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer Detection - Medical AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-heartbeat"></i>
+                <span>Medical AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/brain">Brain Scan</a>
+                <a href="/skin" class="active">Skin Analysis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="detection-page">
+        <div class="container">
+            <div class="page-header">
+                <h1><i class="fas fa-hand-holding-medical"></i> Skin Cancer Detection</h1>
+                <p>Upload a dermoscopic image for AI-powered analysis</p>
+            </div>
+
+            <div class="detection-grid">
+                <!-- Upload Section -->
+                <div class="upload-section">
+                    <div class="upload-card">
+                        <div class="upload-area" id="uploadArea">
+                            <input type="file" id="fileInput" accept="image/*" hidden>
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h3>Drop your skin image here</h3>
+                                <p>or click to browse</p>
+                                <span class="file-types">Supported: JPG, PNG, JPEG (Max 16MB)</span>
+                            </div>
+                        </div>
+
+                        <div class="preview-area" id="previewArea" style="display: none;">
+                            <img id="previewImage" alt="Preview">
+                            <button class="btn-remove" id="removeImage">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <button class="btn btn-secondary btn-analyze" id="analyzeBtn" disabled>
+                            <i class="fas fa-microscope"></i>
+                            Analyze Skin Lesion
+                        </button>
+                    </div>
+
+                    <!-- Info Cards -->
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <i class="fas fa-info-circle"></i>
+                            <h4>About Skin Detection</h4>
+                            <p>Our AI model can classify skin lesions into 5 categories including melanoma, basal cell carcinoma, and benign conditions.</p>
+                        </div>
+                        <div class="info-card warning-card">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h4>Important Notice</h4>
+                            <p>Early detection of melanoma can save lives. Always consult a dermatologist for suspicious lesions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section">
+                    <div class="results-card" id="resultsCard">
+                        <div class="results-placeholder">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>Results will appear here</h3>
+                            <p>Upload a skin image and click analyze to get started</p>
+                        </div>
+
+                        <div class="results-content" id="resultsContent" style="display: none;">
+                            <!-- Loading State -->
+                            <div class="loading-state" id="loadingState">
+                                <div class="spinner"></div>
+                                <h3>Analyzing Skin Lesion...</h3>
+                                <p>Please wait while our AI processes your image</p>
+                            </div>
+
+                            <!-- Results Display -->
+                            <div class="results-display" id="resultsDisplay" style="display: none;">
+                                <div class="result-header">
+                                    <div class="result-icon" id="resultIcon">
+                                        <i class="fas fa-microscope"></i>
+                                    </div>
+                                    <div class="result-title">
+                                        <h2 id="resultTitle">Analysis Result</h2>
+                                        <span class="result-time" id="resultTime"></span>
+                                    </div>
+                                </div>
+
+                                <div class="result-main">
+                                    <div class="prediction-box">
+                                        <span class="label">Detected Condition</span>
+                                        <h3 class="prediction-value" id="predictionValue">-</h3>
+                                    </div>
+                                    <div class="confidence-box">
+                                        <span class="label">Confidence Level</span>
+                                        <div class="confidence-display">
+                                            <span class="confidence-value" id="confidenceValue">0%</span>
+                                            <div class="confidence-bar">
+                                                <div class="confidence-fill" id="confidenceFill"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="severity-indicator" id="severityIndicator">
+                                    <h4>Severity Level</h4>
+                                    <div class="severity-badge" id="severityBadge">-</div>
+                                    <p class="severity-description" id="severityDescription">-</p>
+                                </div>
+
+                                <div class="probabilities-section">
+                                    <h4>All Probabilities</h4>
+                                    <div class="probability-list" id="probabilityList"></div>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button class="btn btn-secondary" id="newAnalysisBtn">
+                                        <i class="fas fa-redo"></i>
+                                        New Analysis
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Error State -->
+                            <div class="error-state" id="errorState" style="display: none;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h3>Analysis Failed</h3>
+                                <p id="errorMessage">An error occurred during analysis</p>
+                                <button class="btn btn-secondary" id="retryBtn">
+                                    <i class="fas fa-redo"></i>
+                                    Try Again
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Disease Info -->
+                    <div class="disease-info-card">
+                        <h4><i class="fas fa-book-medical"></i> Detection Categories</h4>
+                        <div class="disease-list">
+                            <div class="disease-item danger">
+                                <strong>Melanoma:</strong> Most dangerous skin cancer, requires immediate attention
+                            </div>
+                            <div class="disease-item warning">
+                                <strong>Basal Cell Carcinoma:</strong> Most common, slow-growing skin cancer
+                            </div>
+                            <div class="disease-item safe">
+                                <strong>Nevus (Mole):</strong> Common benign skin growth
+                            </div>
+                            <div class="disease-item safe">
+                                <strong>Normal Skin:</strong> Healthy skin tissue
+                            </div>
+                            <div class="disease-item safe">
+                                <strong>Pigmented Keratosis:</strong> Benign skin growth, common in older adults
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <i class="fas fa-exclamation-circle"></i>
+                <strong>Medical Disclaimer:</strong> This tool is for educational and research purposes only. 
+                It should not be used as a substitute for professional medical advice, diagnosis, or treatment. 
+                Always consult with qualified healthcare professionals, especially dermatologists, for any skin concerns.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Medical AI. Built with ❤️(●'◡'●).</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/skin.js"></script>
+</body>
+</html>
